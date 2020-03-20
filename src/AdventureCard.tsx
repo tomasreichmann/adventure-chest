@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Chip from "@material-ui/core/Chip";
+import { Adventure } from "../pages";
 
 const useStyles = makeStyles({
   root: {},
@@ -28,7 +29,9 @@ const useStyles = makeStyles({
   },
 });
 
-const AdventureCard: React.FC = () => {
+export interface IAdventureCardProps extends Adventure {}
+
+const AdventureCard: React.FC<IAdventureCardProps> = (props) => {
   const classes = useStyles();
 
   return (
@@ -37,11 +40,11 @@ const AdventureCard: React.FC = () => {
         <CardMedia
           className={classes.media}
           image="http://www.d20.cz/data/C/5259/cover.png"
-          title="Contemplative Reptile"
+          title={props.system.name}
         />
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
-            Strádovo prokletí
+            {props.system.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             Pod tmavými bouřkovými oblaky stojí osamělá postava, jejíž silueta

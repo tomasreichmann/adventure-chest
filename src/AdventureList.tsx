@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AdventureCard from './AdventureCard';
+import { Adventure } from '../pages';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,12 +13,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const AdventureList: React.FC = () => {
+const AdventureList: React.FC<{
+  items: Adventure[],
+}> = ({ items }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.grid}>
-      {[1, 2, 3, 4, 5, 6, 7].map(index => (<AdventureCard key={index} />))}
+      {items.map((item) => (<AdventureCard key={item.system.codename} {...item} />))}
     </div>
   );
 }
