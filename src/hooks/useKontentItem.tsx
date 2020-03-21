@@ -1,8 +1,7 @@
 import { IState } from "./usePromise";
 import { ContentItem, DeliveryClient } from "@kentico/kontent-delivery";
 import { useMemo } from "react";
-
-const projectId = "3c06f979-fd86-4755-9c77-0f7a4c3f3cd6";
+import { projectId } from "../../kontent";
 
 export function useKontentItem<V extends ContentItem>(
   codename: string,
@@ -13,7 +12,7 @@ export function useKontentItem<V extends ContentItem>(
     if (codename) {
       try {
         const deliveryClient = new DeliveryClient({
-          projectId: projectId
+          projectId
         });
         const delivery = deliveryClient.item<V>(codename);
         const queryWithElements =
@@ -48,7 +47,7 @@ export function useKontentItem<V extends ContentItem>(
         }));
       }
     }
-  }, [codename, JSON.stringify(elements)]); // Changes to this line can cause inifinite rereners, make sure the reference integrity is maintained. Ideally only use primitives.
+  }, [codename, JSON.stringify(elements)]); // Changes to this line can cause infinite re-renders, make sure the reference integrity is maintained. Ideally only use primitives.
 }
 
 export default useKontentItem;
