@@ -6,7 +6,7 @@ export interface IState<V> {
     isPending: boolean;
 }
 
-export const getInitialState = <V>(initialValue: V | null, initialIsPending: boolean = true): IState<V> => {
+export const getInitialState = <V>(initialValue: V | null = null, initialIsPending: boolean = true): IState<V> => {
     return { value: initialValue, error: null, isPending: initialIsPending };
 }
 

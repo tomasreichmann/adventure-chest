@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Page from '../src/Page';
-import Grid from '@material-ui/core/Grid';
-import FilterMenu from '../src/FilterMenu';
-import AdventureList from '../src/AdventureList';
-import useKontentItems from '../src/hooks/useKontentItems';
-import { getInitialState } from '../src/hooks/usePromise';
-import { ContentItem } from '@kentico/kontent-delivery';
-
-export interface AdventureContent extends ContentItem {};
-export interface Adventure {
-  system: ContentItem["system"];
-};
+import React, { useState } from "react";
+import Page from "../src/components/Page";
+import Grid from "@material-ui/core/Grid";
+import FilterMenu from "../src/components/FilterMenu";
+import AdventureList from "../src/components/Adventure/AdventureList";
+import useKontentItems from "../src/hooks/useKontentItems";
+import { getInitialState, IState } from "../src/hooks/usePromise";
+import { Adventure } from "../src/types";
+import Pre from "../src/components/utility/Pre";
 
 export default function Index() {
-  const [adventuresState, setAdventuresState] = useState(getInitialState<AdventureContent[]>(null));
+  const [adventuresState, setAdventuresState] = useState<IState<Adventure[]>>(
+    getInitialState<Adventure[]>(null)
+  );
 
-  useKontentItems<AdventureContent>("adventure", setAdventuresState);
+  useKontentItems<Adventure>(
+    "adventure",
+    ["name", "perex", "game_system"],
+    setAdventuresState
+  );
 
   return (
     <Page>
@@ -25,11 +25,15 @@ export default function Index() {
         <Grid item sm={4} md={3} lg={2}>
           <FilterMenu />
         </Grid>
-        { adventuresState.value ? <Grid item sm={8} md={9} lg={10}>
-          <AdventureList items={adventuresState.value}/>
-        </Grid> : "Loading..." }
+        {adventuresState.value ? (
+          <Grid item sm={8} md={9} lg={10}>
+            <AdventureList items={adventuresState.value} />
+          </Grid>
+        ) : (
+          "Loading..."
+        )}
       </Grid>
-      <pre style={{ maxHeight: 300, overflow: "auto"}}>{JSON.stringify(adventuresState, null, 2)}</pre>
+      <Pre>{adventuresState}</Pre>
     </Page>
   );
 }

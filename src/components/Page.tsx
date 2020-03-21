@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box';
+import Link from './Link';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -39,15 +40,15 @@ const Page: React.FC = ({children}) => {
     <Container maxWidth={false}>
       <AppBar position="static" color="transparent" elevation={0} className={classes.appBar}>
         <Toolbar>
-          <div className={classes.home}>
+          <Link className={classes.home} href="/" color="textPrimary" underline="none">
             <img src="/adventure-chest.svg" className={classes.logo} />
-            <Typography variant="h5" className={classes.title}>
+            <Typography variant="h4" className={classes.title}>
               Adventure Chest
             </Typography>
             <Typography variant="caption" className={classes.subTitle}>
               Katalog dobrodružství pro hry na hrdiny
             </Typography>
-          </div>
+          </Link>
         </Toolbar>
       </AppBar>
       <Box py={4}>
