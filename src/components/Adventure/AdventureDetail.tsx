@@ -6,23 +6,29 @@ import Typography from "@material-ui/core/Typography";
 import { Adventure } from "../../types";
 
 const useStyles = makeStyles({
-  name: {},
+  name: {}
 });
 
-export interface IAdventureDetailProps extends Omit<Adventure, "getAllElements"> {
+export interface IAdventureDetailProps
+  extends Omit<Adventure, "getAllElements"> {}
 
-}
-
-const AdventureDetail: React.FC<IAdventureDetailProps> = (props) => {
+const AdventureDetail: React.FC<IAdventureDetailProps> = props => {
   const classes = useStyles();
-  console.log('props', props);
+  console.log("props", props);
 
   return (
     <>
       <div>image</div>
-      <Typography variant="h3" component="h1" className={classes.name}>{props.name.value}</Typography>
+      <Typography variant="h3" component="h1" className={classes.name}>
+        {props.name.value}
+      </Typography>
       <div>tags</div>
-      <Typography variant="body2" color="textSecondary" component="div" dangerouslySetInnerHTML={{__html: props.perex.value}} />
+      <Typography
+        variant="body2"
+        color="textSecondary"
+        component="div"
+        dangerouslySetInnerHTML={{ __html: props.perex.value }}
+      />
       <div>description</div>
     </>
   );
