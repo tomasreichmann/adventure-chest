@@ -62,6 +62,7 @@ const AdventureCard: React.FC<IAdventureCardProps> = props => {
       <CardActions className={classes.cardActions}>
         <Box className={classes.tags}>
           <Chip
+            color="secondary"
             size="small"
             label="DnD5e"
             component="a"
@@ -70,6 +71,7 @@ const AdventureCard: React.FC<IAdventureCardProps> = props => {
           />
           &ensp;
           <Chip
+            color="secondary"
             size="small"
             label="Horror"
             component="a"

@@ -1,9 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Theme } from '@material-ui/core';
 import AdventureCard from './AdventureCard';
 import { Adventure } from '../../types';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
   },
   grid: {

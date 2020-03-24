@@ -16,13 +16,13 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import { TaxonomyGroup, TaxonomyTerms } from "@kentico/kontent-delivery";
 import { IFilter } from "../../pages";
-import { Box } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import InverseCard from "./layout/InverseCard";
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
     height: "100%",
-    backgroundColor: theme.palette.grey[200]
   },
   nested: {
     paddingLeft: theme.spacing(4)
@@ -41,6 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
   filterTerm: {
     margin: theme.spacing(0.5),
+    border: `1px solid ${theme.palette.secondary.light}`,
   },
 }));
 
@@ -88,7 +89,7 @@ const getAddFilterTerm = (
                   // add rest of terms
                   .concat(
                     selectedTerms.filter(selectedTerm =>
-                      taxonomyGroup.terms.some(
+                      taxonomyGroup.terms.every(
                         term => term.codename !== selectedTerm.codename
                       )
                     )
@@ -168,97 +169,101 @@ const FilterMenu: React.FC<IFilterMenuProps> = ({
   console.log("filters", filters);
 
   return (
-    <List
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Filtry
-        </ListSubheader>
-      }
-      className={classes.root}
-    >
-      {filters.length > 0 && (
-        <Box mx={2} my={1}>
-          {filters.map(taxonomyGroup => {
-            return (
-              <Box key={taxonomyGroup.system.codename} color="secondary">
-                <Typography variant="button" component="div" className={classes.filterName}>
-                  {taxonomyGroup.system.name}&ensp;
-                  <IconButton
-                    size="small"
-                    aria-label="delete"
-                    onClick={getOnDelete(
-                      setFilters,
-                      taxonomyGroup.system.codename
-                    )}
-                  >
-                    <CloseIcon fontSize="small" />
-                  </IconButton>
-                </Typography>
-                <div className={classes.filterTerms}>
-                  {taxonomyGroup.terms.map(term => (
-                    <Chip
-                      className={classes.filterTerm}
-                      key={term.codename}
-                      label={term.name}
+    <InverseCard className={classes.root}>
+      <List
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader component="div" color="inherit" id="nested-list-subheader">
+            Filtry
+          </ListSubheader>
+        }
+
+      >
+        {filters.length > 0 && (
+          <Box mx={2} my={1}>
+            {filters.map(taxonomyGroup => {
+              return (
+                <Box key={taxonomyGroup.system.codename} color="secondary">
+                  <Typography variant="button" component="div" className={classes.filterName}>
+                    {taxonomyGroup.system.name}&ensp;
+                    <IconButton
                       size="small"
-                      onDelete={getOnDelete(
+                      color="inherit"
+                      aria-label="delete"
+                      onClick={getOnDelete(
                         setFilters,
-                        taxonomyGroup.system.codename,
-                        term.codename
+                        taxonomyGroup.system.codename
                       )}
-                    />
-                  ))}
-                </div>
-              </Box>
-            );
-          })}
-        </Box>
-      )}
-      {relevantTaxonomyGroups.map(taxonomyGroup => {
-        return (
-          <React.Fragment key={taxonomyGroup.system.codename}>
-            <ListItem
-              button
-              onClick={getExpandMenu(taxonomyGroup.system.codename)}
-            >
-              {/* <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon> */}
-              <ListItemText primary={taxonomyGroup.system.name} />
-              {expandedMenu === taxonomyGroup.system.codename ? (
-                <ExpandLess />
-              ) : (
-                <ExpandMore />
-              )}
-            </ListItem>
-            <Collapse
-              in={expandedMenu === taxonomyGroup.system.codename}
-              timeout="auto"
-              unmountOnExit
-            >
-              <List component="div" disablePadding>
-                {taxonomyGroup.terms.map(term => {
-                  return (
-                    <ListItem
-                      key={term.codename}
-                      button
-                      className={classes.nested}
-                      onClick={getAddFilterTerm(setFilters, taxonomyGroup, [
-                        term
-                      ])}
                     >
-                      <ListItemText primary={term.name} />
-                    </ListItem>
-                  );
-                })}
-              </List>
-            </Collapse>
-          </React.Fragment>
-        );
-      })}
-    </List>
+                      <CloseIcon fontSize="small" />
+                    </IconButton>
+                  </Typography>
+                  <div className={classes.filterTerms}>
+                    {taxonomyGroup.terms.map(term => (
+                      <Chip
+                        color="secondary"
+                        className={classes.filterTerm}
+                        key={term.codename}
+                        label={term.name}
+                        size="small"
+                        onDelete={getOnDelete(
+                          setFilters,
+                          taxonomyGroup.system.codename,
+                          term.codename
+                        )}
+                      />
+                    ))}
+                  </div>
+                </Box>
+              );
+            })}
+          </Box>
+        )}
+        {relevantTaxonomyGroups.map(taxonomyGroup => {
+          return (
+            <React.Fragment key={taxonomyGroup.system.codename}>
+              <ListItem
+                button
+                onClick={getExpandMenu(taxonomyGroup.system.codename)}
+              >
+                {/* <ListItemIcon>
+                  <SettingsIcon />
+                </ListItemIcon> */}
+                <ListItemText primary={taxonomyGroup.system.name} />
+                {expandedMenu === taxonomyGroup.system.codename ? (
+                  <ExpandLess />
+                ) : (
+                  <ExpandMore />
+                )}
+              </ListItem>
+              <Collapse
+                in={expandedMenu === taxonomyGroup.system.codename}
+                timeout="auto"
+                unmountOnExit
+              >
+                <List component="div" disablePadding>
+                  {taxonomyGroup.terms.map(term => {
+                    return (
+                      <ListItem
+                        key={term.codename}
+                        button
+                        className={classes.nested}
+                        onClick={getAddFilterTerm(setFilters, taxonomyGroup, [
+                          term
+                        ])}
+                      >
+                        <ListItemText primary={term.name} />
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </Collapse>
+            </React.Fragment>
+          );
+        })}
+      </List>
+    </InverseCard>
   );
 };
 

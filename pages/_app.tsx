@@ -22,6 +22,7 @@ export default class MyApp extends App {
         <Head>
           <title>Adventure Chest</title>
           <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+          <link href="https://fonts.googleapis.com/css?family=Kalam:400,700|Rosario:400,700&amp;display=swap&amp;subset=latin-ext" rel="stylesheet" />
         </Head>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
