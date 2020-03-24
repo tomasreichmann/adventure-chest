@@ -35,12 +35,12 @@ export interface IAdventureCardProps
 const AdventureCard: React.FC<IAdventureCardProps> = props => {
   const classes = useStyles();
 
-  console.log("props", props);
+  const detailUri = `/dobrodruzstvi/${props.system.codename}`;
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <Link href={`/adventure/${props.system.codename}`} underline="none" color="inherit">
+        <Link href={detailUri} underline="none" color="inherit">
           <CardMedia
             className={classes.media}
             image="http://www.d20.cz/data/C/5259/cover.png"
@@ -79,7 +79,7 @@ const AdventureCard: React.FC<IAdventureCardProps> = props => {
             clickable
           />
         </Box>
-        <Link href={`/adventure/${props.system.codename}`} underline="none">
+        <Link href={detailUri} underline="none">
           <Button variant="contained" color="primary" disableElevation>
             Prohlédnout si
           </Button>

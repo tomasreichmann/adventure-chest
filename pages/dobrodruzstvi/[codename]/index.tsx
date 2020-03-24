@@ -5,7 +5,7 @@ import useKontentItem from '../../../src/hooks/useKontentItem';
 import { getInitialState } from '../../../src/hooks/usePromise';
 import { Adventure } from '../../../src/types';
 import StateWrapper from '../../../src/components/utility/StateWrapper';
-import AdventureDetail from '../../../src/components/xxx/AdventureDetail';
+import AdventureDetail from '../../../src/components/adventure/AdventureDetail';
 
 export default function AdventurePage() {
   const router = useRouter();
