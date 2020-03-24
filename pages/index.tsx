@@ -3,7 +3,7 @@ import { TaxonomyGroup } from "@kentico/kontent-delivery";
 import Grid from "@material-ui/core/Grid";
 import Page from "../src/components/layout/Page";
 import FilterMenu from "../src/components/FilterMenu";
-import AdventureList from "../src/components/adventure/AdventureList";
+import AdventureList from "../src/components/xxx/AdventureList";
 import Pre from "../src/components/utility/Pre";
 import StateWrapper from "../src/components/utility/StateWrapper";
 import { getInitialState, IState } from "../src/hooks/usePromise";

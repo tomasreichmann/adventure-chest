@@ -39,7 +39,6 @@ const thisUrl = `/kralovstvi-jedine-bohyne`;
 
 export default function AdventurePage() {
   const classes = useStyles();
-  const { pathname } = useRouter();
   return (
     <Page>
       <ImageFrame url="https://www.wallpaperup.com/uploads/wallpapers/2013/10/28/166434/4d6aa48d8af7e38d1a966736aa0cf0bd.jpg" />
