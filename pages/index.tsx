@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TaxonomyGroup } from "@kentico/kontent-delivery";
 import Grid from "@material-ui/core/Grid";
 import Page from "../src/components/layout/Page";
@@ -10,6 +10,7 @@ import { getInitialState, IState } from "../src/hooks/usePromise";
 import useKontentItems from "../src/hooks/useKontentItems";
 import useKontentTaxonomyGroups from "../src/hooks/useKontentTaxonomyGroups";
 import { Adventure } from "../src/types";
+import { useRouter } from "next/router";
 
 export interface IFilter {
   taxonomyGroup: string;
@@ -31,12 +32,51 @@ export default function Index() {
   useKontentItems<Adventure>(
     {
       type: "adventure",
-      elements: ["name", "perex", "game_system"],
+      elements: ["name", "perex", "game_system", "genre"],
       filters
     },
     setAdventuresState
   );
   const adventures = adventuresState.value;
+
+  const { query } = useRouter();
+
+  // handle query filtering like ?genre=horror&genre=scifi&game_system=fate
+  useEffect(() => {
+    setFilters(() => {
+      if (!query) {
+        return [];
+      }
+      return Object.keys(query)
+        .map(groupCodename => {
+          const termCodenames = Array.isArray(query[groupCodename])
+            ? query[groupCodename]
+            : [query[groupCodename]];
+
+          const groupMatch =
+            (taxonomyGroups &&
+              taxonomyGroups.find(
+                taxonomyGroup => taxonomyGroup.system.codename === groupCodename
+              )) ||
+            null;
+          if (groupMatch) {
+            const termMatches: TaxonomyGroup["terms"] = groupMatch.terms.filter(
+              term => {
+                return termCodenames.includes(term.codename);
+              }
+            );
+            return {
+              ...groupMatch,
+              terms: termMatches
+            };
+          }
+          return null;
+        })
+        .filter((taxonomyGroup: TaxonomyGroup | null) => {
+          return taxonomyGroup !== null && taxonomyGroup.terms.length > 0;
+        }) as TaxonomyGroup[];
+    });
+  }, [query, taxonomyGroups]);
 
   return (
     <Page>
