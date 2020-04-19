@@ -43,21 +43,24 @@ function Link(props: LinkProps) {
     className: classNameProps,
     innerRef,
     naked,
+    prefetch,
     ...other
   } = props;
 
   const router = useRouter();
   const pathname = typeof href === 'string' ? href : href.pathname;
+  const isExternal = typeof href === 'string' && /^\w*\:\/\//.test(href);
   const className = clsx(classNameProps, {
     [activeClassName]: router.pathname === pathname && activeClassName,
   });
 
   if (naked) {
-    return <NextComposed className={className} ref={innerRef} href={href} {...other} />;
+    return <NextComposed prefetch={isExternal ? false : prefetch} className={className} ref={innerRef} href={href} {...other} />;
   }
 
   return (
     <MuiLink
+      prefetch={isExternal ? false : prefetch}
       component={NextComposed}
       className={className}
       ref={innerRef}

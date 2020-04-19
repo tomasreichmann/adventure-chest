@@ -61,7 +61,7 @@ const Page: React.FC = ({children}) => {
         <Toolbar disableGutters>
           <Link className={classes.home} href="/" color="textPrimary" underline="none">
             <img src="/adventure-chest.svg" className={classes.logo} />
-            <Typography variant="h5" className={classes.title}>
+            <Typography variant="h3" className={classes.title}>
               Adventure Chest
             </Typography>
             <Typography variant="body2" className={classes.subTitle}>

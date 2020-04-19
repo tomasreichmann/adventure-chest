@@ -19,7 +19,7 @@ const AdventureDetail: React.FC<IAdventureDetailProps> = props => {
   return (
     <>
       <div>image</div>
-      <Typography variant="h3" component="h1" className={classes.name}>
+      <Typography variant="h1" component="h1" className={classes.name}>
         {props.name.value}
       </Typography>
       <div>tags</div>

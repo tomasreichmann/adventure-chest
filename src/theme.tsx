@@ -1,5 +1,15 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-import red from "@material-ui/core/colors/red";
+import { createMuiTheme, Theme } from "@material-ui/core/styles";
+
+export const getPaletteColor = (colorPath: string, theme: Theme): React.CSSProperties["color"] | null => {
+  const [color, type] = colorPath.split(".");
+  const palette = theme.palette as unknown as {[key: string]: {[key: string]: React.CSSProperties["color"]}};
+  if (color && type) {
+    return palette[color] && palette[color][type] || null
+  }
+  return null
+}
+
+const headingMultiplier = 4/3;
 
 // Create a theme instance.
 const theme = createMuiTheme({
@@ -35,6 +45,7 @@ const theme = createMuiTheme({
     }
   },
   typography: {
+    // fontSize: 14,
     fontFamily: [
       "Rosario",
       "BlinkMacSystemFont",
@@ -48,8 +59,32 @@ const theme = createMuiTheme({
       '"Segoe UI Symbol"'
     ].join(","),
     body2: {
-      fontFamily: "Kalam, cursive",
+      fontFamily: "Kalam, cursive"
     },
+    h1: {
+      fontSize: `${2 * headingMultiplier}em`,
+      fontWeight: 700
+    },
+    h2: {
+      fontSize: `${1.5 * headingMultiplier}em`,
+      fontWeight: 700
+    },
+    h3: {
+      fontSize: `${1.17 * headingMultiplier}em`,
+      fontWeight: 700
+    },
+    h4: {
+      fontSize: `${1.12 * headingMultiplier}em`,
+      fontWeight: 700
+    },
+    h5: {
+      fontSize: `${0.83 * headingMultiplier}em`,
+      fontWeight: 700
+    },
+    h6: {
+      fontSize: `${0.75 * headingMultiplier}em`,
+      fontWeight: 700
+    }
   }
 });
 

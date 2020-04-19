@@ -3,7 +3,8 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import clsx from "clsx";
 
 export interface IImageFrameProps {
-  url: string;
+  className?: string;
+  uri: string;
   aspectRatio?: string;
   backgroundPosition?: React.CSSProperties["backgroundPosition"];
   Component?: React.ElementType<React.HTMLAttributes<HTMLElement>>;
@@ -14,7 +15,7 @@ const useStyles = makeStyles<Theme, Partial<IImageFrameProps>>(
     root: {
       position: "relative",
     },
-    image: ({ aspectRatio = "16:9", backgroundPosition = "center center", url }) => {
+    image: ({ aspectRatio = "16:9", backgroundPosition = "center center", uri }) => {
       const [widthAspect, heightAspect] = aspectRatio
         .split(":")
         .map(aspectFragment => parseInt(aspectFragment, 10));
@@ -22,7 +23,7 @@ const useStyles = makeStyles<Theme, Partial<IImageFrameProps>>(
       return {
         display: "block",
         paddingTop: `${widthToHeightRatio * 100}%`,
-        background: `url("${url}") ${backgroundPosition} / cover no-repeat`,
+        background: `url("${uri}") ${backgroundPosition} / cover no-repeat`,
       };
     },
 
@@ -30,13 +31,14 @@ const useStyles = makeStyles<Theme, Partial<IImageFrameProps>>(
 );
 
 const ImageFrame: React.FC<IImageFrameProps> = ({
-  url,
+  className,
+  uri,
   Component = "div",
   aspectRatio = "16:9",
   backgroundPosition = "center center",
 }) => {
-  const classes = useStyles({ aspectRatio, backgroundPosition, url });
-  return <Component className={clsx(classes.root)} ><span className={classes.image} /></Component>;
+  const classes = useStyles({ aspectRatio, backgroundPosition, uri });
+  return <Component className={clsx(classes.root, className)} ><span className={classes.image} /></Component>;
 };
 
 export default ImageFrame;

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { TaxonomyGroup } from "@kentico/kontent-delivery";
+import { TaxonomyGroup, ContentItem } from "@kentico/kontent-delivery";
 import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 import Page from "../src/components/layout/Page";
 import FilterMenu from "../src/components/FilterMenu";
 import AdventureList from "../src/components/adventure/AdventureList";
 import Pre from "../src/components/utility/Pre";
 import StateWrapper from "../src/components/utility/StateWrapper";
-import { getInitialState, IState } from "../src/hooks/usePromise";
+import { getInitialState } from "../src/hooks/usePromise";
 import useKontentItems from "../src/hooks/useKontentItems";
 import useKontentTaxonomyGroups from "../src/hooks/useKontentTaxonomyGroups";
 import { Adventure } from "../src/types";

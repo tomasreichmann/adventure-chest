@@ -118,7 +118,7 @@ const AdventureCard: React.FC<IAdventureCardProps> = props => {
             title={props.name.value}
           />
           <CardContent className={classes.cardContent}>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h2" component="h2">
               {props.name.value}
             </Typography>
             <Typography
