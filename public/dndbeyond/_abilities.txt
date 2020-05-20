@@ -1,0 +1,6 @@
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/abilities/strength.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/abilities/dexterity.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/abilities/constitution.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/abilities/intelligence.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/abilities/wisdom.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/abilities/charisma.svg

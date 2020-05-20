@@ -1,0 +1,16 @@
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/blinded.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/charmed.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/deafened.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/exhaustion.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/exhausted.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/frightened.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/grappled.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/incapacitated.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/invisible.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/paralyzed.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/petrified.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/poisoned.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/prone.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/restrained.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/stunned.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/conditions/unconscious.svg

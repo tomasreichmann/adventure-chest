@@ -1,0 +1,13 @@
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/acid.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/bludgeoning.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/cold.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/fire.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/force.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/lightning.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/necrotic.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/piercing.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/poison.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/psychic.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/radiant.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/slashing.svg
+https://www.dndbeyond.com/content/1-0-882-0/skins/waterdeep/images/icons/damage_types/thunder.svg

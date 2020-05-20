@@ -35,7 +35,7 @@ const ContentWithIcon: React.FC<IContentWithIconProps> = ({
   return (
     <div className={clsx(classes.ContentWithIcon, className)}>
       <div className={classes.iconWrapper}>{icon}</div>
-      {children}
+      <div>{children}</div>
     </div>
   );
 };
